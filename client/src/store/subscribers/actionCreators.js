@@ -6,7 +6,7 @@ import { addSubscriber, setSubscribers } from "./actions";
 export const setSubscribersAC =() =>  async (dispatch) =>{
     if(!localStorage.getItem('users')){
         try {
-            const users = await fetch('users.json').then(response =>response.json());
+            const users = await fetch('http://localhost:3001/users').then(response =>response.json());
          console.log(users)
     
         
