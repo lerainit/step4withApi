@@ -3,9 +3,9 @@ import { setPosts } from "./actions";
  export const setPostsAC =()=> async (dispatch)=>{
     if(!localStorage.getItem('posts')){
         try {
-            const posts = await fetch('posts.json').then(response =>response.json());
+            const {status,data} = await fetch('http://localhost:3001/newPosts').then(response =>response.json());
          
-                localStorage.setItem('posts',JSON.stringify(posts))
+                localStorage.setItem('posts',JSON.stringify(data))
                
                
                 dispatch({ type:setPosts})

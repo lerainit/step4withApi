@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import postsRouter from './posts/postsRouter.js'
 import userRouter from "./users/userRouter.js";
+import newPostsRouter from "./posts/newPosts/newPostsRouter.js";
 
 const logger = (req,res,next) =>{
 
@@ -18,6 +19,7 @@ app.use(cors())
 
 app.use('/posts',postsRouter)
 app.use('/users',userRouter)
+app.use('/newPosts',newPostsRouter)
 
 
 app.listen(PORT,()=>{
