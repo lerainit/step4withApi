@@ -3,12 +3,12 @@ export const setBackgroundAC =()=> async (dispatch)=> {
 
   if  (!localStorage.getItem('products')){
         try {
-            const products = await fetch('http://localhost:3001/posts').then(response =>response.json());
-         console.log(products)
+            const {status,data} = await fetch('http://localhost:3001/posts').then(response =>response.json());
+       
     
-    //  const  products2 = products[1]
+  
         
-            localStorage.setItem(` products`,JSON.stringify( products))
+            localStorage.setItem(` products`,JSON.stringify( data))
                
              
                 dispatch({ type:setBackground})
