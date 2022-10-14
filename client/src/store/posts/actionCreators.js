@@ -5,12 +5,14 @@ import { setPosts } from "./actions";
         try {
             const {status,data} = await fetch('http://localhost:3001/newPosts').then(response =>response.json());
          
+
+            if(status === 'success'){
                 localStorage.setItem('posts',JSON.stringify(data))
                
                
                 dispatch({ type:setPosts})
             
-         
+            }
     
         } catch (err) {
          

@@ -10,13 +10,13 @@ export const setCounterAC = () => async (dispatch) => {
             const {status,data} = await fetch('http://localhost:3001/posts').then(response =>response.json());
 
          
-         
+         if(status === 'success'){
                 localStorage.setItem('counter',JSON.stringify(data))
                
                
                 dispatch({ type:setCounter})
             
-         
+         }
     
         } catch (err) {
          
