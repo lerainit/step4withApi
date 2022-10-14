@@ -6,11 +6,11 @@ import { addSubscriber, setSubscribers } from "./actions";
 export const setSubscribersAC =() =>  async (dispatch) =>{
     if(!localStorage.getItem('users')){
         try {
-            const users = await fetch('http://localhost:3001/users').then(response =>response.json());
-         console.log(users)
+            const {status,data} = await fetch('http://localhost:3001/users').then(response =>response.json());
+        
     
         
-         localStorage.setItem('users',JSON.stringify(users))
+         localStorage.setItem('users',JSON.stringify(data))
                
    
                 dispatch({ type:setSubscribers})
